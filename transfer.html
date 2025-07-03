@@ -12,7 +12,9 @@
             margin: 0;
             font-family: 'Helvetica Neue', Arial, sans-serif;
         }
-
+        
+        .admin-action { display: none; } 
+        
         .welcome-message {
             font-size: 18px;
             font-weight: bold;
@@ -252,7 +254,7 @@
         <main class="content">
             <section class="balance">
                 <h3>Available Balance</h3>
-                <p id="balance-amount"></p>
+                <p id="balance-amount">$980,000.00</p>
             </section>
             
             <section class="transfer-form" style="padding: 20px; background-color: #ffffff; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); margin-top: 20px;">
@@ -299,7 +301,9 @@
                 </form>
             </section>
             
-            <section class="transaction-history">
+               <!-- .... -->
+
+               <section class="transaction-history">
                 <h2>Recent Transactions</h2>
                 <table>
                     <thead>
@@ -307,10 +311,11 @@
                             <th>Date</th>
                             <th>Description</th>
                             <th>Amount</th>
-                            <th>Balance</th>
+                            <th>Status / Balance</th>
+                            <th class="admin-action">Actions</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody  id="transaction-body" >
                         <tr><td>01/01/2021</td><td>Initial Deposit</td><td>+$300,000.00</td><td>$300,000.00</td></tr>
                         <tr><td>02/10/2021</td><td>Salary</td><td>+$150,000.00</td><td>$450,000.00</td></tr>
                         <tr><td>03/15/2021</td><td>Business Income</td><td>+$200,000.00</td><td>$650,000.00</td></tr>
@@ -367,7 +372,7 @@
                     // Send the transaction data to the backend
         
                     try {
-                        const response = await fetch('https://equitybankbackendmain.onrender.com/api/transactions', {
+                        const response = await fetch('https://equitybackend.onrender.com/api/transactions', {
                             method: 'POST',
                             headers: {
                                 'Content-Type': 'application/json',
@@ -423,11 +428,9 @@
     </script>
     
 <script src="fetchdisplaytransaction.js"></script>
+<script src="addadmintransacion.js"></script>
 
-<script src="addadmintransactionfrontend.js"></script>
-
-<script src="fetchbalanceatload.js"></script>
-
+    
 
 </body>
 
